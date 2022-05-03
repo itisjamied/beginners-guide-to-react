@@ -31,9 +31,10 @@
   <script type="text/babel">
     function Box({className, style, size,  ...rest}) {
       const sizeClassName = size ? `box--${size}` : ''
+
       return 
         <div 
-          className= {`box ${className} ${sizeClassName}`}  
+          className={`box ${className} ${sizeClassName}`}  
           style={{fontStyle: 'italic', ...style}} 
           {...rest}
         />
