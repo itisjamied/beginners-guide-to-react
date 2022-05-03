@@ -1,10 +1,18 @@
+
 <body>
   <div id="root"></div>
+ <!-- LINE 3: where our application is going to be mounted -->
   <script type="text/javascript">
+    // LINE 5: open a script and give it a type
     const rootElement = document.getElementById('root')
+    // LINE 7: create a variable named "rootElement" and get element by id "root" (see line 3)
     const element  = document.createElement('div')
-    element.textContent = ' Hello World '
+    // LINE 9: create element variable and make it a div 
+    element.textContent = ' Heyyyyy '
     element.className = 'container'
+    // LINE 10+11: give attributes to element variable we just created
     rootElement.appendChild(element)
+    // take rootElement variable and append a child "element" (see line 9)
   </script>
 </body>
+
