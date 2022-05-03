@@ -1,13 +1,26 @@
 <body>
   <div id="root"></div>
+  <!-- #use unpkg.com to get any file distrubuted on nmp (has react and reactdom files) -->
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <!-- open up a script tag -->
   <script type="text/javascript">
+    // create variable "rootElement" and append to element with an id of root
     const rootElement = document.getElementById('root')
+    //create element variable usisng React.create api vs document.create (see 01)
     const element = React.createElement('div', {
+      //specify properties on creation rather than grabbing element then giving properties (see s01)
       className: 'container',
+      //instead of "textContent" use "children" 
       children: 'Hello World',
-    })
+      //can makes thid an array as well (can use other reactelements as well)
+    },
+    //can also add text content here (props-> children (becomes array if multiple))
+    'Goodbye World', 
+    'See ya later', 
+    )
+    console.log (element)
+    //render "element" to "rootElement" using React Dom
     ReactDOM.render(element, rootElement)
   </script>
 </body>
