@@ -4,7 +4,17 @@
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
+    // can use Ract.Fragment to pass two span variables as one argument
+    //EX:
+    //const helloElement = React.createElemetn('span', null, 'Hello')
+    //const worldElement = React.createElemetn('span', null, 'World')
+    //const element = React.create Element
+    //    (React.Fragment, 
+    //    null, 
+    //    helloElement (first child), 
+    //    worldElement (second child))
     const element = (
+      //can also be <React.Fragment> <React.Fragment> but b/c it's used so often you don't actually need full tags with jsx
       <>
         <span>Hello</span> <span>World</span>
       </>
