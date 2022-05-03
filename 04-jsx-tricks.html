@@ -5,10 +5,19 @@
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
     const rootElement = document.getElementById('root')
+    //make children a variable
     const children = 'Hello World'
+    //make class name a variable
     const className = 'container'
+    //interpolate those variables into props variable
     const props = {children, className}
-    const element = <div {...props} />
+    //interpolate props variable into element variable
+    const element = <div id="app-root" {...props} className = "not-container" />
+    //use ... to tell computer to take spread of props, can overide something by adding a prop after the inital spread
     ReactDOM.render(element, rootElement)
+
+    //moral of the story: EVERYTHING VARIES
+    //use curly brackets to {interpolate}
+    //jsx can use slf closing tabs on divs (see line15)
   </script>
 </body>
