@@ -4,6 +4,8 @@
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
+    //moved greeting code to "useLocalStorageState" function and initialize b/c we cna use it elsewhere
+    //accept paramter of key(key in local storage) and default value (provided with key but if not left as an empty array)
     function useLocalStorageState(key, defaultValue = '') {
       const [state, setState] = React.useState(
         () => window.localStorage.getItem(key) || defaultValue,
@@ -18,7 +20,7 @@
 
     function Greeting() {
       const [name, setName] = useLocalStorageState('name')
-
+      //? 
       const handleChange = event => setName(event.target.value)
 
       return (
@@ -31,7 +33,8 @@
         </div>
       )
     }
-
+    //useLocalStorage becomes custom function 
+    //functions that beginwith "use" are custom hooks so that we follow community convention and ESLint can show up mistakes
     ReactDOM.render(<Greeting />, document.getElementById('root'))
   </script>
 </body>
