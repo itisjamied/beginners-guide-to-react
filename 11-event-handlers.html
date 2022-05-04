@@ -9,10 +9,12 @@
     const state = {eventCount: 0, username: ''}
 
     function App() {
+      //updates event.count parameter with +1
       function handleClick() {
         setState({eventCount: state.eventCount + 1})
       }
 
+      //updates username paramter to whatever "event.target.value" is when the user types it in
       function handleChange(event) {
         setState({username: event.target.value})
       }
@@ -21,21 +23,26 @@
         <div>
           <p>There have been {state.eventCount} events.</p>
           <p>
+            {/* every time object is clicked, "handleClick" function is run" */}
             <button onClick={handleClick}>Click Me</button>
           </p>
           <p>You typed: {state.username}</p>
           <p>
+            {/* use onBlur to update once field is changed*/}
+            {/* gets updates as user types*/}
             <input onChange={handleChange} />
           </p>
         </div>
       )
     }
 
+    //updates state, with new state parameters
     function setState(newState) {
       Object.assign(state, newState)
       renderApp()
     }
 
+    //renders appp to root
     function renderApp() {
       ReactDOM.render(<App />, document.getElementById('root'))
     }
