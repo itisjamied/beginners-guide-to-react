@@ -4,12 +4,18 @@
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
+
+    //type in value and have it svaed in local storage so when you refresh value will be retrieved from local storage and loaded into input
+    //React.useeffect (called every time greeting is renderd)
     function Greeting() {
+      //initialize value of use.State as whatever is in local storage
       const [name, setName] = React.useState(
+        //set item in local storage, give it a name ('name') and set to default value ('')
         window.localStorage.getItem('name') || '',
       )
-
+    //inspector -> applications ->local storage (can see list of items and current value)
       React.useEffect(() => {
+        //use React.useEffect to set name value in local storage --> name value in memory
         window.localStorage.setItem('name', name)
       })
 
@@ -19,8 +25,10 @@
         <div>
           <form>
             <label htmlFor="name">Name: </label>
+            {/*specify intial value of input(controlled input) as name object*/}
             <input value={name} onChange={handleChange} id="name" />
           </form>
+          {/*specify intial value of output as name object (conntrolled output) */}
           {name ? <strong>Hello {name}</strong> : 'Please type your name'}
         </div>
       )
