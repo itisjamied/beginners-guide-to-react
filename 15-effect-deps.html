@@ -11,8 +11,24 @@
 
       React.useEffect(() => {
         window.localStorage.setItem('name', name)
+        console.log("useEffect Greeting")
       }, [name])
+      //state or world needs to syncronize with state of application (ex: use could loose work if they refresh page b/c state application wasnt sinc with world)
+      //React DEPENDANCY ARRAY to stop local storage from 
 
+      //eslint-plugin-react-hooks (keeps it updated for you)
+
+      // {
+      //   "plugins": [
+      //     "react-hooks"
+      //   ],
+      //   "rules" {
+      //     "react-hooks"/rules-of-hooks" : "error", 
+      //     "react-hooks/exhaustive-deps" : "warn"
+      //   }
+      // }
+      
+        //optimization b/c useEffect was being called when it wasnt needed
       const handleChange = event => setName(event.target.value)
 
       return (
