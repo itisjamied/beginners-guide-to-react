@@ -4,10 +4,18 @@
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
+
+    //we only need it to read into local storage for intialization, not every time we type/re-render
     function Greeting() {
-      const [name, setName] = React.useState(
-        () => window.localStorage.getItem('name') || '',
+      const [name, setName] = React.useState( () => { 
+          console.log('hey')
+        return window.localStorage.getItem('name') || ''
+        },
       )
+      console.log("rendered")
+
+      //change React.useState with arrow function () => 
+      //provide function for intial value and only run it when it is necissary
 
       React.useEffect(() => {
         window.localStorage.setItem('name', name)
@@ -25,6 +33,8 @@
         </div>
       )
     }
+    //reading into local storage is not needed on every render
+    //turned inital value argument into function and react will only call it on the 1st render
 
     ReactDOM.render(<Greeting />, document.getElementById('root'))
   </script>
