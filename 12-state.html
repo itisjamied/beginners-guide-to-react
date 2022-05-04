@@ -6,15 +6,34 @@
   <script type="text/babel">
     function Greeting() {
       const [name, setName] = React.useState('')
+      const [name2, setName2] = React.useState('')
+      //update name object to setName input
+      //react hook: maintains state for component (React.useState), pass a default value of empty string
+      //can set default value  of useState as any type
       const handleChange = event => setName(event.target.value)
+      const handleChange2 = event => setName2(event.target.value)
+      //update setName to input on form
       return (
         <div>
           <form>
+            {/* use htmlFor to make sure input is assigned to form (when you click it will highlight input box) */}
             <label htmlFor="name">Name: </label>
+          {/*onChnage update handle chnage object*/}
             <input onChange={handleChange} id="name" />
           </form>
+            {/*use "name?" to check for name obect update. ":" otherwise, say "Please type your name*/}
           {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+
+          <form>
+            {/* use htmlFor to make sure input is assigned to form (when you click it will highlight input box) */}
+            <label htmlFor="name">Name: </label>
+          {/*onChnage update handle chnage object*/}
+            <input onChange={handleChange2} id="name" />
+          </form>
+            {/*use "name?" to check for name obect update. ":" otherwise, say "Please type your name*/}
+          {name ? <strong>Goodbye {name2}</strong> : 'Please type your name'}
         </div>
+        
       )
     }
 
