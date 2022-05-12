@@ -5,19 +5,30 @@
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
     function UsernameForm() {
+    // const usernameInputRef = React.useRef()
+
       function handleSubmit(event) {
         event.preventDefault()
+        //stops the full page refresh after form is submitted
         const username = event.target.elements.usernameInput.value
+        // const username = usernameInputRef.current.value
+        //retrieve username value using event.target.elements.(ID).value
         alert(`You entered: ${username}`)
       }
 
       return (
         <form onSubmit={handleSubmit}>
+           {/* onSubmit allows user to submit form any way (enter or button) */}
           <div>
             <label htmlFor="usernameInput">Username:</label>
-            <input id="usernameInput" type="text" />
+            {/*use htmlFor to properly associate label to form input*/}
+            <input   id="usernameInput" type="text" />
+            {/*ref = {usernameInputRef} param for line 24*/}
+            {/*giving input and id (usernameInput) -> can also use name */}
           </div>
           <button type="submit">Submit</button>
+          <button type="button">Cancel</button>
+          <button type="button">End</button>
         </form>
       )
     }
