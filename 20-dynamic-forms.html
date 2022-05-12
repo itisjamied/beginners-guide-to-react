@@ -7,6 +7,7 @@
     function UsernameForm() {
       const [username, setUsername] = React.useState('')
       const isLowerCase = username === username.toLowerCase()
+      //checks forced lowercased version of input against input to see if it is equal
       const error = isLowerCase ? null : 'Username must be lower case'
 
       function handleSubmit(event) {
@@ -25,9 +26,9 @@
             <input id="usernameInput" type="text" onChange={handleChange} />
           </div>
           <div style={{color: 'red'}}>{error}</div>
-          <button disabled={Boolean(error)} type="submit">
-            Submit
-          </button>
+          {/*runs error*/}
+          <button disabled={Boolean(error)} type="submit"> Submit </button>
+          {/*button will be disables if error comes back*/}
         </form>
       )
     }
