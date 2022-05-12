@@ -36,14 +36,18 @@
 
     function App() {
       const [explode, setExplode] = React.useState(false)
+      //init exlpode state to false
       return (
         <div>
           <div>
             <button onClick={() => setExplode(true)}>💣</button>
+            {/*when button is clicked it chnaged explode state to true*/}
           </div>
           <div>
+            {/*create error boundary as not break entire app*/}
             <ErrorBoundary FallbackComponent={ErrorFallback}>
-              {explode ? <Bomb /> : 'Push the button Max!'}
+              {explode ? <Bomb /> : 'Push the button Maab!'}
+              {/*if explode state is true run "<Bomb ?>" or show 'Push the button Max*/}
             </ErrorBoundary>
           </div>
         </div>
